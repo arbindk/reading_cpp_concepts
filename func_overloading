@@ -1,0 +1,11 @@
+There are some important rules for overloading functions:
+Return-Type is not a factor for uniqueness: Return-Type plays no role in resolving ambiguity of overloaded functions. Thus, two functions declared exactly the same with only the return-type different will generate a compilation error.
+
+    int add(int, int);
+    double add(int, int);       //generates Compilation Error
+
+
+Argument Names are not a factor for uniqueness: Similar to above, declaring argument names differently with their types same also doesn't resolve ambiguity.
+
+    int add(int a, int b);
+    double add(int c, int d);//generates Compilation Error
