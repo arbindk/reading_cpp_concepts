@@ -1,0 +1,24 @@
+#Program to convert decimal to binary
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    long long x = 29;
+    
+    string bin;
+    
+    while (x) {
+        bin += (char)((x & 1) + '0');//divides decimal number by 2 and gives reminder
+        cout<<"bin is"<<bin<<endl;
+        x >>= 1;//generates quotient
+        cout<< "x : "<<x<<endl;
+    }
+    
+    reverse(bin.begin(), bin.end());
+    
+    cout << bin << endl;
+    
+    return 0;
+}
