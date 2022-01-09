@@ -1,0 +1,18 @@
+int strstr(string s, string x)
+{
+     //Your code here
+    for (int i = 0, j = x.length()-1; j < s.length(); i++, j = i + x.length()-1) {
+           
+           string ans;
+           int start=i;
+           while (start < j+1) {
+            ans += s.at(start);
+            start++;
+            }
+           
+           if (ans==x) {
+               return i;
+           }
+       }
+       return -1;
+}
