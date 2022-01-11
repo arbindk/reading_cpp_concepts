@@ -1,0 +1,43 @@
+Input:
+N = 4
+dict[] = {abb,abc,xyz,xyy}
+pattern  = foo
+Output: abb xyy
+Explanation: xyy and abb have the same
+character at index 1 and 2 like the
+pattern.
+
+
+vector<string>  findMatchedWords(vector<string> dict, string pattern)
+{
+    //Your code here
+      vector<string> ans;
+      string s = "";
+      int count2 = 0;
+      for(int i=0; i<pattern.size(); i++){
+          if(pattern[i] != pattern[i+1]){
+                  count2++;
+              }else{
+                  count2--;
+              }
+      }
+      for(int i=0; i<dict.size(); i++){
+          s = dict[i];
+          int count1 = 0;
+          for(int j=0; j<s.size(); j++){
+              if(s[j] != s[j+1]){
+                  count1++;
+              }else{
+                  count1--;
+              }
+          }
+          
+          if(count1 == count2){
+              if(s.size() == pattern.size())
+              ans.push_back(s);
+          }
+          
+      }
+      return ans;
+
+}
