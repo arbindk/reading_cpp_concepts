@@ -1,0 +1,11 @@
+long toh(int N, int from, int to, int aux) {
+       // Your code here
+       if(N == 0){
+           return 0;
+       }
+       long c1 = toh(N-1,from,aux,to);
+       std::cout<<"move disk "<< N <<" from rod "<< from <<" to rod "<< to<<std::endl;
+       long c2  = toh(N-1,aux,to,from);
+       
+       return c1+c2+1;
+}
