@@ -1,0 +1,75 @@
+booking entry
+
+#include <bits/stdc++.h>
+using namespace std;
+static bool comp(vector<int>a, vector<int>b)
+{
+    for(auto ab : a )
+        cout<<"vector : a: "<<ab<<" ";
+    cout<<endl;
+    for(auto ab : b )
+        cout<<"vector : b: "<<ab<<" ";
+    cout<<endl;
+    //cout<<a[0]<<" "<<b[0];
+    //cout<<endl;
+    if(a[0] == b[0])
+    {
+        return a[1] < b[1];
+    }
+    return a[0] < b[0];
+}
+vector<int> returnArray(vector<vector<int>>slots)
+{
+/*
+Slot Ticket
+1 1
+2 2
+3 3
+1 4
+1 5
+
+
+S,T
+int s[] = 1,2,3,4,5,6,7
+int arr[10];
+for()
+{1,1} -> 0
+{2,2} -> 1
+{2,3} -> 2
+{1,4} -> 3
+{1,5} -> 4
+
+{{1,1},{2,2},{3,3},{1,4},{1,5}}
+After sorting
+{{1,1},{1,4},{1,5},{2,2},{2,3}}
+
+*/
+
+    map<pair<int,int>,int>mp;
+    for(int i=0; i<slots.size(); i++)
+    {
+        //cout<<slots[i][0]<<" "<<slots[i][1]<<endl;
+        mp[{slots[i][0],slots[i][1]}] = i;
+    }
+    sort(slots.begin(),slots.end(),comp);
+    vector<int>ans;
+    for(vector<int>v : slots)
+    {
+        ans.push_back(mp[{v[0],v[1]}]);
+    }
+    return ans;
+}
+    
+int main() {
+
+vector<vector<int>>v;
+v = {{1,1},{2,2},{3,3},{1,4},{1,5}};
+vector<int>ans = returnArray(v);
+cout<<"=============ANS================"<<endl;
+for(int x : ans)
+{
+cout<<x<<" ";
+}
+cout<<endl;
+return 0;
+}
